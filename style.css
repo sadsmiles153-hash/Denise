@@ -382,6 +382,47 @@ button {
 }
 
 .mute-btn span { font-size: 0.8rem; }
+.music-toggle {
+  position: fixed;
+  bottom: 1.4rem;
+  right: 1.4rem;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(255,255,255,0.75);
+  border: 1px solid rgba(200,162,255,0.5);
+  border-radius: 999px;
+  padding: 0.55rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 6px 18px rgba(200,162,255,0.25);
+  transition: transform 0.2s ease, border-color 0.3s ease;
+}
+
+.music-toggle:hover { transform: translateY(-2px); border-color: var(--soft-purple); }
+
+.night .music-toggle {
+  background: rgba(40, 30, 70, 0.65);
+  color: #f4ecff;
+}
+
+.music-toggle .music-icon { display: inline-block; }
+
+.music-toggle.playing .music-icon {
+  animation: musicPulse 1.1s ease-in-out infinite;
+}
+
+@keyframes musicPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+}
+
+@media (max-width: 480px) {
+  .music-toggle .music-label { display: none; }
+  .music-toggle { padding: 0.7rem; }
+}
 
 /* ---------------- Shooting star ---------------- */
 .shooting-star-layer {

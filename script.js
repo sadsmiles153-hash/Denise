@@ -21,6 +21,9 @@ const fireworksCanvas = document.getElementById('fireworks-canvas');
 const shootingStarLayer = document.getElementById('shooting-star-layer');
 const moonBtn = document.getElementById('moon-btn');
 const muteBtn = document.getElementById('mute-btn');
+const bgAudio = document.getElementById('bg-audio');
+const musicToggle = document.getElementById('music-toggle');
+const musicLabel = musicToggle.querySelector('.music-label');
 
 const sceneSelect = document.getElementById('scene-select');
 const landingCopy = document.getElementById('landing-copy');
@@ -337,14 +340,37 @@ function triggerSecret() {
 // ---------------------------------------------------------------
 // Mute toggle
 // ---------------------------------------------------------------
+
+musicToggle.addEventListener('click', () => {
+  if (bgAudio.paused) {
+    bgAudio.play().catch(() => {
+      musicLabel.textContent = 'no track found';
+    });
+    musicToggle.classList.add('playing');
+    musicToggle.setAttribute('aria-pressed', 'true');
+    musicLabel.textContent = 'playing';
+  } else {
+    bgAudio.pause();
+    musicToggle.classList.remove('playing');
+    musicToggle.setAttribute('aria-pressed', 'false');
+    musicLabel.textContent = 'play music';
+  }
+});
+
 muteBtn.addEventListener('click', () => {
   const next = !isMuted();
   setMuted(next);
   muteBtn.setAttribute('aria-pressed', String(!next));
   const icon = next ? '🔇' : isMusicPlaying() ? '🔊' : '🔈';
   muteBtn.innerHTML = `${icon} <span>${next ? 'unmute' : 'mute'}</span>`;
-});
 
+  if (next) {
+    bgAudio.pause();
+    musicToggle.classList.remove('playing');
+    musicToggle.setAttribute('aria-pressed', 'false');
+    musicLabel.textContent = 'play music';
+  }
+});
 // ---------------------------------------------------------------
 // Init
 // ---------------------------------------------------------------

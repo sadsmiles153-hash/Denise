@@ -20,6 +20,12 @@
   <button id="moon-btn" class="moon-btn" title="Psst... click me" aria-label="Toggle night mode">🌙</button>
   <button id="mute-btn" class="mute-btn" aria-pressed="false">🔈 <span>mute</span></button>
 
+  <audio id="bg-audio" loop preload="none">
+  <source src="music/track.mp3" type="audio/mpeg">
+</audio>
+<button id="music-toggle" class="music-toggle" aria-pressed="false">
+  <span class="music-icon">♪</span> <span class="music-label">play music</span>
+</button>
   <!-- SCENE: gift selection -->
   <section id="scene-select" class="scene select-scene">
     <div id="landing-copy" class="landing-copy">

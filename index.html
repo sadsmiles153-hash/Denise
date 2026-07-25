@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Happy Birthday, Denise 🎉</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Quicksand:wght@400;500;600;700&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="app-root" class="app-root">
+
+  <div id="particle-field" class="particle-field" aria-hidden="true"></div>
+  <canvas id="fireworks-canvas" class="fireworks-canvas" aria-hidden="true"></canvas>
+  <div id="shooting-star-layer" class="shooting-star-layer" aria-hidden="true"></div>
+
+  <button id="moon-btn" class="moon-btn" title="Psst... click me" aria-label="Toggle night mode">🌙</button>
+  <button id="mute-btn" class="mute-btn" aria-pressed="false">🔈 <span>mute</span></button>
+
+  <!-- SCENE: gift selection -->
+  <section id="scene-select" class="scene select-scene">
+    <div id="landing-copy" class="landing-copy">
+      <h1 class="title-glow">🎉 Happy Birthday, Denise 🎉</h1>
+      <p style="color: lime;">here is something small from me</p>
+      <p class="subtitle">Pick a gift to see what's inside.</p>
+    </div>
+
+    <div id="gift-row" class="gift-row">
+      <!-- gift boxes injected by script.js -->
+    </div>
+
+    <button id="continue-btn" class="primary-btn continue-btn hidden">🎉 Continue to the celebration</button>
+  </section>
+
+  <!-- SCENE: birthday message -->
+  <section id="scene-birthday" class="scene card-scene hidden">
+    <div class="birthday-card">
+      <div class="card-border">
+        <div class="card-icons">🎂 🎈 ✨ 🎀 🕊️</div>
+        <h2>Happy Birthday, Denise!</h2>
+        
+        <p class="card-message"><span id="birthday-typed"></span><span class="caret">|</span></p>
+      </div>
+    </div>
+    <button class="primary-btn back-btn" data-back>← Back to gifts</button>
+  </section>
+
+  <!-- SCENE: photos / scrapbook -->
+  <section id="scene-photos" class="scene photos-scene hidden">
+    <p class="section-label">a few pictures of the prettiest girl I know (her words, and honestly, mine too)</p>
+    <div id="photo-grid" class="photo-grid">
+      <!-- photo slots injected by script.js -->
+    </div>
+    
+    <button class="primary-btn back-btn" data-back>← Back to gifts</button>
+  </section>
+
+  <!-- SCENE: our story / friendship letter -->
+  <section id="scene-us" class="scene letter-scene hidden">
+    <div class="birthday-card wide">
+      <div class="card-border">
+        <div class="card-icons">💍 😄 🚌 🤓 💛</div>
+        <h2>To my wife, unofficially</h2>
+        <div class="letter-body">
+          <p>Miss Four Eyes,</p>
+          <p>
+            We first crossed paths at JETS when I was in grade 11 and you were in grade 10,
+            and I'll be honest I wasn't thinking about you at all. You clearly weren't
+            thinking about me either. it was just two people in there our world plus maybe 
+            the reson was because I never qualified.
+          </p>
+          <p>
+            Then grade 12 happened, you were in grade 11, and our schools ended up sharing
+            the same bus . Someone called my name out loud, and you turned around and asked
+            "who's Sebastian? saw me, and said absolutely nothing. Classic. Even a single conversation
+            at that moment would  have made a difference.
+          </p>
+          <p>
+            On the ride home, we ended up sitting
+            together, and somewhere in that conversation you leaned your head on my
+            shoulder. First time that had ever happened to me ok not first time but....... I had it bad for a week
+            straight after that.
+          </p>
+          <p>
+            You've decided somewhere along the way that you're my wife, without either of
+            us actually getting married making me live my anime fantasy life, and the fact
+            you consider you the prettiest girl around is concerning coz others might get you instead
+            but
+            you're not exactly wrong on either count. you
+            carry yourself like you own the room, and somehow that combination just
+            works.
+          </p>
+          <p>
+            wife or not, girlfriend or not, friends or not we will always be close somehow even if we 
+            usually don't see eye to eye  anywhere this is 
+            a birthday-card not a love letter.
+          </p>
+          <p>
+            So happy birthday, to someone I feel closer to than I probably say out loud
+            enough. Here's to more bus rides, more nonsense, and more of you being
+            unbothered and right about being the prettiest.
+          </p>
+          <p class="signature">— Sebastian</p>
+        </div>
+      </div>
+    </div>
+    <button class="primary-btn back-btn" data-back>← Back to gifts</button>
+  </section>
+
+  <!-- SCENE: final celebration -->
+  <section id="scene-final" class="scene final-scene hidden">
+    <div id="balloons-layer" class="balloons-layer" aria-hidden="true"></div>
+    <h2 class="final-title">Make a wish 🎂</h2>
+
+    <div class="cake-wrap">
+      <button id="cake" class="cake" aria-label="Birthday cake">
+        <div id="cake-candles" class="cake-candles"></div>
+        <div class="cake-tier cake-tier-top"></div>
+        <div class="cake-tier cake-tier-bottom"></div>
+      </button>
+      <p id="cake-hint" class="cake-hint">Tap the cake to light the candles.</p>
+      <button id="mic-btn" class="mic-btn hidden">🎙️ Blow out with mic (optional)</button>
+    </div>
+  </section>
+
+  <div id="secret-overlay" class="secret-overlay hidden">
+    <div class="secret-text">🎉 You found the secret word! 🎉</div>
+  </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/canvas-confetti/1.9.3/confetti.browser.min.js"></script>
+<script src="sound.js"></script>
+<script src="fireworks.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
